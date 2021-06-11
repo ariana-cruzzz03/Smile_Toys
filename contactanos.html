@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maxium-scale=1, minium-scale=1">
+    <title>Contactanos - Smile Store</title>
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
+
+
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: "Baloo Tammudu 2";
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        header {
+            width:100%;
+            height: 50px;
+            background: rgb(233, 211, 201);
+            color: #fff;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index: 100;
+        }
+
+        .contenedor {
+            width:98%;
+            margin:auto;
+        }
+
+        #menu-bar {
+            display:none;
+        }
+
+        .titulo {
+            float:left;
+            height: 60px;
+        }
+
+        header label {
+            float:right;
+            font-size:28px;
+            margin:8px 0;
+        }
+
+        header .contenedor {
+            display: table;
+        }
+
+        .menu {
+            position:absolute;
+            top:50px;
+            left:0;
+            width:100%;
+            height:100vh;
+            background: rgba(241,233,230,0.9);
+            transition:all 0.5s;
+            transform:translateX(-100%);
+        }
+
+        .menu a{
+            display:block;
+            color:rgb(70, 69, 69);
+            height:50px;
+            text-decoration:none;
+            padding:15px;
+            border-bottom:1px solid rgba(241,233,230,0.3);
+            font-size: 14px;
+        }
+
+        .menu a:hover{
+            background:rgba(241,233,230,0.3);
+        }
+
+        #menu-bar:checked ~ .menu{
+            transform: translateX(0%);
+        }
+
+        body{
+	height: 100vh;
+	width: 100%;
+}
+
+.container{
+	position: relative;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 100px;
+}
+
+.container:after{
+	content: '';
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	left: 0;
+	top: 0;
+	background: url("img/bg.jpg") no-repeat center;
+	background-size: cover;
+	filter: blur(50px);
+	z-index: -1;
+}
+.contact-box{
+	max-width: 850px;
+	display: grid;
+	grid-template-columns: repeat(2, 1fr);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	background-color: #fff;
+	box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+}
+
+.left{
+	background: url("img/bg.jpg") no-repeat center;
+	background-size: cover;
+	height: 100%;
+}
+
+.right{
+	padding: 25px 40px;
+}
+
+h2{
+	position: relative;
+	padding: 0 0 10px;
+	margin-bottom: 10px;
+}
+
+h2:after{
+	content: '';
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translateX(-50%);
+    height: 4px;
+    width: 50px;
+    border-radius: 2px;
+    background-color: #2ecc71;
+}
+
+.field{
+	width: 100%;
+	border: 2px solid rgba(0, 0, 0, 0);
+	outline: none;
+	background-color: rgba(230, 230, 230, 0.6);
+	padding: 0.5rem 1rem;
+	font-size: 1.1rem;
+	margin-bottom: 22px;
+	transition: .3s;
+}
+
+.field:hover{
+	background-color: rgba(0, 0, 0, 0.1);
+}
+
+textarea{
+	min-height: 150px;
+}
+
+.btn{
+	width: 100%;
+	padding: 0.5rem 1rem;
+	background-color: #2ecc71;
+	color: #fff;
+	font-size: 1.1rem;
+	border: none;
+	outline: none;
+	cursor: pointer;
+	transition: .3s;
+}
+
+.btn:hover{
+    background-color: #27ae60;
+}
+
+.field:focus{
+    border: 2px solid rgba(30,85,250,0.47);
+    background-color: #fff;
+}
+
+@media screen and (max-width: 880px){
+	.contact-box{
+		grid-template-columns: 1fr;
+	}
+	.left{
+		height: 200px;
+	}
+}
+        
+
+        #info{
+            background:rgb(39,74,76,.5);
+            color:#fff;
+            text-align:center;
+            padding: 5px;
+            font-family: "Baloo Tammudu 2";
+            font-weight: bold;
+        }
+
+        #info .contenedor{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        .info-pet{
+            margin:20px;
+        }
+
+        .info-pet img{
+            width:50px;
+            height:50px;
+        }
+
+        footer .contenedor{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            font-family: "Baloo Tammudu 2";
+        }
+
+        .copy{
+            font-size:20px;
+        }
+
+        .sociales{
+            width: 100%;
+            text-align:center;
+            font-size:25px;
+        }
+
+        .sociales a{
+            color:#333;
+            text-decoration:none;
+        }
+
+        .info-pet p{
+            font-size: 14px;
+            color:rgb(39,74,76)
+        }
+
+        @media (min-width:1024px){
+            .menu{
+                position:static;
+                width:auto;
+                height: auto;
+                transform: translateX(0%);
+                float:right;
+                display:flex;
+                background: rgba(233, 211, 201);
+            }
+
+            .menu a{
+                border:none;
+                color: rgb(85, 50, 49);
+            }
+
+            header label{
+                display:none;
+            }
+
+            body{
+                height: 100vh;
+                width: 100%
+            }
+
+            .container{
+                position: relative;
+                width: 100%;
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                padding: 20px 100px;
+            }
+
+            .container:after{
+                content: '';
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                left: 0;
+                top: 0;
+                background: url("") no-repeat center;
+                background-size: cover;
+                filter: blur(50px);
+                z-index: -1;
+            }
+            .contact-box{
+                max-width: 850px;
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                background-color: #fff;
+                box-shadow: 0px 0px 19px 5px rgba(0,0,0,0.19);
+            }   
+
+
+            .right{
+                padding: 25px 40px;
+            }
+
+            h2{
+                position: relative;
+                padding: 0 0 10pmargin-bottom: 10px;
+            }
+
+            .field{
+                width: 100%;
+                border: 2px solid rgba(0, 0, 0, 0);
+                outline: none;
+                background-color: rgba(39, 74, 76, 0.507));
+                padding: 0.5rem 1rem;
+                font: 1.1rem;
+                margin-bottom: 22px;
+                Transition: .3s;
+}
+
+            .field:hover{
+                background-color: rgba(39, 74, 76, 0.507);
+        }
+
+            textarea{
+                max-height: 150px;
+}
+
+            .btn{
+            width: 100%;
+            padding: 0.5rem 1rem;
+            background-color: rgba(39, 74, 76, 0.507);
+            color: #fff;
+            font-size: .75rem;
+            border: none;
+            outline: none;
+            cursor: pointer;
+            transition: .3s;
+}
+
+            .btn:hover{
+                background-color: rgba(39, 74, 76, 0.507);
+            }
+
+            .field:focus{
+                border: 2px solid rgba(39, 74, 76, 0.507);
+                background-color: #fff;
+            }   
+
+        @media screen and (max-width: 880px){
+            
+            .contact-box{
+                grid-template-columns: 1fr;
+            }   
+            .left{
+                height: 200px;
+            }
+        }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <header>
+        <div class="contenedor">
+            <img class="titulo" src="titulo_op2.png">
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar">...</label>
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="muñecas.html">Muñecas</a>
+                <a href="infantes.html">Infantes</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="juegosdemesa.html">Juegos de Mesa</a>
+                <a href="contruccion.html">Construcción</a>
+                <a href="contactanos.html">Contáctanos</a>
+            </nav>
+    </header>
+
+    <div class="container">
+		<div class="contact-box">
+			<div class="left"></div>
+			<div class="right">
+				<h2></h2>
+				<input type="text" class="field" placeholder="Nombre">
+				<input type="text" class="field" placeholder="Correo">
+				<input type="text" class="field" placeholder="Celular">
+				<textarea placeholder="Message" class="field"></textarea>
+				<button class="btn">Enviar</button>
+			</div>
+		</div>
+	</div>
+
+    <section id="info">
+        <div class="contenedor">
+            <div class=info-pet>
+                <img src="llamada-telefonica.png" alt="">
+                <p>Teléfono: 2772-1234</p>
+            </div>
+            <div class=info-pet>
+                <img src="mapa.png" alt="">
+                <p>Barrio Torondón, Comayagua, Honduras</p>
+            </div>
+            <div class=info-pet>
+                <img src="cronografo.png" alt="">
+                <p>100% 7:00 a.m. - 7:00 p.m.</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Smile Toy®</p>
+            <div class="sociales">
+                <a class="icon-instagram" href="#"></a>
+                <a class="icon-twitter" href="#"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>

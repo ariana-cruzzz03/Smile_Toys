@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maxium-scale=1, minium-scale=1">
+    <title>Smile Store</title>
+    <link rel="stylesheet" href="css/fontello.css">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Baloo+Tammudu+2&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin:0;
+            padding:0;
+            box-sizing: border-box;
+            font-family: "Baloo Tammudu 2";
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+        }
+
+        header {
+            width:100%;
+            height: 50px;
+            background: rgb(233, 211, 201);
+            color: #fff;
+            position:fixed;
+            top:0;
+            left:0;
+            z-index: 100;
+        }
+
+        .contenedor {
+            width:98%;
+            margin:auto;
+        }
+
+        #menu-bar {
+            display:none;
+        }
+
+        .titulo {
+            float:left;
+            height: 60px;
+        }
+
+        header label {
+            float:right;
+            font-size:28px;
+            margin:8px 0;
+        }
+
+        header .contenedor {
+            display: table;
+        }
+
+        .menu {
+            position:absolute;
+            top:50px;
+            left:0;
+            width:100%;
+            height:100vh;
+            background: rgba(241,233,230,0.9);
+            transition:all 0.5s;
+            transform:translateX(-100%);
+        }
+
+        .menu a{
+            display:block;
+            color:rgb(70, 69, 69);
+            height:50px;
+            text-decoration:none;
+            padding:15px;
+            border-bottom:1px solid rgba(241,233,230,0.3);
+            font-size: 14px;
+        }
+
+        .menu a:hover{
+            background:rgba(241,233,230,0.3);
+        }
+
+        #menu-bar:checked ~ .menu{
+            transform: translateX(0%);
+        }
+
+        #slider{
+            overflow:hidden;
+        }
+
+        #slider figure{
+            position:relative;
+            width:500%;
+            margin:50px 0px 05px 0px;
+            left:0;
+            animation: 20s slider infinite;
+        }
+
+        #slider figure img{
+            width: 20%;
+            float:left;
+        }
+
+        @keyframes slider{
+            0%{
+                left:0;
+            }
+            20%{
+                left:0;
+            }
+            25%{
+                left:-100%;
+            }
+            45%{
+                left:-100%;
+            }
+            50%{
+                left:-200%;
+            }
+            70%{
+                left:-200%;
+            }
+            75%{
+                left:-300%;
+            }
+            95%{
+                left:-300%;
+            }
+            100%{
+                left:-400%;
+            }
+        }
+
+        .container{
+            width: 90%;
+            max-width: 1000px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 3em;
+            margin-bottom: 3em;
+
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            grid-gap: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+
+        .item{
+            background-color: #fff;
+            cursor: pointer;
+            box-shadow: 0 0 5px 0 rgba(0,0,0,.095);
+
+            transition: all 300ms;
+
+            position: relative;
+        }
+
+
+        .item::after {
+            content: "";
+            background-color: rgba(179, 229, 252, .1);
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top:0;
+            left: 0;
+            transform: scale(0);
+            transition: all 300ms;
+            opacity: 0;
+        }
+
+        .item:hover:after{
+            opacity: 1;
+            transform: scale(1);
+        }
+
+        .item:hover {
+            transform: scale(1.05);
+        }
+
+        .item-text{
+            padding: 1em;
+        }
+
+        .item-text a{
+            text-decoration:none;
+        }
+
+        .item-img{
+            max-width: 100%;
+            display: block;
+            max-height:280px;
+        }
+        
+        h2{
+            text-align: center
+        }
+
+        #info{
+            background:rgb(39,74,76,.5);
+            color:#fff;
+            text-align:center;
+            padding: 5px;
+            font-family: "Baloo Tammudu 2";
+            font-weight: bold;
+        }
+
+        #info .contenedor{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content:center;
+        }
+
+        .info-pet{
+            margin:20px;
+        }
+
+        .info-pet img{
+            width:50px;
+            height:50px;
+        }
+
+        footer .contenedor{
+            display:flex;
+            flex-wrap:wrap;
+            justify-content: center;
+            font-family: "Baloo Tammudu 2";
+        }
+
+        .copy{
+            font-size:20px;
+        }
+
+        .sociales{
+            width: 100%;
+            text-align:center;
+            font-size:25px;
+        }
+
+        .sociales a{
+            color:#333;
+            text-decoration:none;
+        }
+
+        .info-pet p{
+            font-size: 14px;
+            color:rgb(39,74,76)
+        }
+
+        @media (min-width:480px){
+            .container{
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        @media (min-width:768px){
+            .container{grid-template-columns: repeat(3, 1fr);}
+        }
+
+        @media (min-width:1024px){
+            .menu{
+                position:static;
+                width:auto;
+                height: auto;
+                transform: translateX(0%);
+                float:right;
+                display:flex;
+                background: rgba(233, 211, 201);
+            }
+
+            .menu a{
+                border:none;
+                color: rgb(85, 50, 49);
+            }
+
+            header label{
+                display:none;
+            }
+
+            .container{
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+    
+    <header>
+        <div class="contenedor">
+            <img class="titulo" src="titulo_op2.png">
+            <input type="checkbox" id="menu-bar">
+            <label class="icon-menu" for="menu-bar">...</label>
+            <nav class="menu">
+                <a href="index.html">Inicio</a>
+                <a href="muñecas.html">Muñecas</a>
+                <a href="infantes.html">Infantes</a>
+                <a href="vehiculos.html">Vehículos</a>
+                <a href="juegosdemesa.html">Juegos de Mesa</a>
+                <a href="contruccion.html">Construcción</a>
+                <a href="contactanos.html">Contáctanos</a>
+            </nav>
+    </header>
+
+    <div id="slider">
+        <figure>
+            <img src="slide1.png">
+            <img src="slide2.jpg">
+            <img src="slide3.jpg">
+            <img src="slide4.jpg">
+            <img src="slide1.png">
+        </figure>
+    </div>
+
+    <h2>DESTACADOS</h2>
+    <div class="container">
+        <div class="item">
+            <img src="arena.jpg" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Arena Mágica Slime</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="popit.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Pop It Juego Antiestrés</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="guante.jpg" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Thanos Guante</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="barbiereveal.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Barbie color reveal</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+    </div>
+
+    <h2>OFERTAS</h2>
+    <div class="container">
+        <div class="item">
+            <img src="convertiblebarbie.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Convertible de Barbie</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="torreAros.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Pirámide de Aros</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="Ladybug.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Miraculous Muñeca articulada</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+        
+        <div class="item">
+            <img src="Crybaby.png" alt="" class="item-img">
+            <div class="item-text">
+                <h3>Cry Babies Muñeca</h3>
+                <a href="">Añadir al carrito</a>
+            </div>
+        </div>
+    </div>
+
+    <section id="info">
+        <div class="contenedor">
+            <div class=info-pet>
+                <img src="camion.png" alt="">
+                <p>Compra 100% SEGURA</p>
+            </div>
+            <div class=info-pet>
+                <img src="estrella.png" alt="">
+                <p>ENVIOS a toda Honduras</p>
+            </div>
+            <div class=info-pet>
+                <img src="proteger.png" alt="">
+                <p>100% SATISFACCIÓN</p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="contenedor">
+            <p class="copy">Smile Toy®</p>
+            <div class="sociales">
+                <a class="icon-instagram" href="#"></a>
+                <a class="icon-twitter" href="#"></a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
